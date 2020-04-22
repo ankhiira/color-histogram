@@ -3,7 +3,7 @@ import {RGBtoHSL, HSLtoRGB, RGBtoHSV, HSVtoRGB} from './colorManipulation.js';
 // nacteme obrazek a vykreslime jej na canvas
 export async function loadImage() {
 
-    let img, imgData = 0
+    let img, imgData
 
     let origImg = document.getElementById('myImage')
     let src = document.getElementById("myImage").src
