@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Histogram Simulation</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body id="my-body">
+<div id="div-wrapper">
+    <div id="div-left">
+        <div id="bottom-left">
+            <div class="div-slider">
+                <form class="form-slider" name="hueForm">
+                    <label for="sliderHueId" id="label-hue">Hue</label>
+                    <output class="slider-output" name="hueVal" id="hueValId">0</output>
+                    <input class="slider-input" type="range" name="hue" id="sliderHueId"
+                           value="0" min="-180" max="180" step="1">
+                </form>
+            </div>
+            <div class="div-slider">
+                <form class="form-slider" name="saturationForm">
+                    <label for="sliderSatId" id="label-chrono">Saturation</label>
+                    <output class="slider-output" name="hueVal" id="satValId">0</output>
+                    <input class="slider-input" type="range" name="hue" id="sliderSatId"
+                           value="50" min="0" max="100">
+                </form>
+            </div>
+            <div class="div-slider">
+                <form class="form-slider" name="brightForm">
+                    <label for="sliderBrightId" id="label-brightness">Brightness</label>
+                    <output class="slider-output" name="hueVal" id="brightValId">0</output>
+                    <input class="slider-input" type="range" name="hue" id="sliderBrightId"
+                           value="50" min="0" max="100" step="1">
+                 </form>
+            </div>
+        </div>
+    </div>
+    <div id="div-right">
+        <h1 class="main-header">
+            Color Histogram
+        </h1>
+
+        <!-- Nacitani obrazku -->
+        <div id="button-div">
+            <input class="input" type="file" name="inpFile" id="inpFile">
+            <label for="inpFile" id="file_button_label">Choose file</label>
+        </div>
+        <div class="image-preview" id="imgePreview">
+            <canvas class="my-canvas" id="myCanvas"></canvas>
+            <canvas class="my-canvas" id="myCanvasHidden"></canvas>
+            <img id="myImage" src="" alt="Image Preview" class="image-preview__image">
+            <span class="image-preview__default-text">Image Preview</span>
+        </div>
+
+        <!-- zobrazeni grafu -->
+        <script id="myImg" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <canvas id="myChart" width="400" height="400"></canvas>
+
+        <!-- odkaz na skript pracujici s nacitanim obrazku -->
+        <script type="module" src="./scripts/uploadImage.js"></script>
+        <!-- odkaz na skript manipulujici data slidery -->
+        <script type="module" src="./scripts/sliderManipulation.js"></script>
+        <!-- odkaz na skript vytvarejici graf -->
+        <script type="module" src="./scripts/graph.js"></script>
+    </div>
+</div>
+
+</body>
+</html>
+

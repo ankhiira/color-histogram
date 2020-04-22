@@ -1,0 +1,120 @@
+#my-body {
+    font-family: sans-serif;
+    font-size: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #eeeeee;
+}
+
+#div-wrapper {
+    display: flex;
+}
+
+#div-left {
+    flex: 0 0 40%;
+    margin-top: 500px;
+}
+
+#div-right {
+    flex: 0 0 40%;
+}
+
+.image-preview {
+    width: 300px;
+    min-height: 100px;
+    border: 2px dashed #ccc;
+    margin: 50px auto;
+    padding: 10px;
+
+    /* Defaultni text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: darkgray;
+}
+
+.my-canvas {
+    display: none;
+    width: 100%;
+}
+
+.form-slider {
+    margin-left: 20%;
+}
+
+.slider-output {
+    float: right;
+    width: 20px;
+}
+
+.slider-input {
+    float: right;
+    width: 150px;
+    margin-right: 10%;
+}
+
+.div-slider {
+    margin: 20px;
+}
+
+.image-preview__image {
+    display: none;
+    width: 100%;
+}
+
+.main-header {
+    font-size: 24px;
+    text-align: center;
+}
+
+.input + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.input {
+    display: none;
+    padding: 10px;
+    background: #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+    /* Defaultni text */
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666666;
+}
+
+#file_button_label {
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+    background: #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+    /* Defaultni text */
+    /* horizonalni a vertikalni vycentrovani */
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #4e4e4e;
+}
+
+#button-div {
+    top: 200px;
+    left: 300px;
+    display: flex;
+}
+
+#file_button {
+    display: none;
+}
