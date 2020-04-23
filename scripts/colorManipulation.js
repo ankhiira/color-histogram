@@ -47,6 +47,10 @@ export function HSLtoRGB(pix) {
 
     var R, G, B
 
+    if (S < 0) {
+        S = 0
+    }
+
     if (S === 0) {
         R = G = B = L
     } else {

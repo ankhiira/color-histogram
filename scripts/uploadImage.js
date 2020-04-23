@@ -3,9 +3,11 @@ import {createGraph, getPixelMatrix, loadImage, editPixels} from './graph.js';
 var myChart = createGraph(0)
 
 // obnovime histogram s novymi hodnotami
-export function getMyChart(val, type) {
+export function getMyChart(values) {
     myChart.destroy()
-    myChart = createGraph(getPixelMatrix(editPixels(val, null, type)))
+    loadImage().then(imgDataOrig => {
+        myChart = createGraph(getPixelMatrix(editPixels(imgDataOrig, values)))
+    })
 }
 
 const inpFile = document.getElementById("inpFile")

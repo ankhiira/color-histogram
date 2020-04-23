@@ -33,32 +33,35 @@ export async function loadImage() {
 }
 
 // funkce modifikujici hondoty pixelu podle hodnoty slideru
-export function editPixels(value, imgDataOrig, type) {
+export function editPixels(imgDataOrig, values) {
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
 
     let img = context.getImageData(0, 0, canvas.width, canvas.height)
     let imgData = img.data
 
-    console.log(img.data[1], img.data[1 + 1], img.data[1 + 2])
-    // console.log(RGBtoHSB(img.data[1], img.data[1 + 1], img.data[1 + 2]))
+    // console.log(img.data[1], img.data[1 + 1], img.data[1 + 2])
+    // var RGB = RGBtoHSL(img.data[1], img.data[1 + 1], img.data[1 + 2])
+    //
+    // console.log(RGBtoHSL(img.data[1], img.data[1 + 1], img.data[1 + 2]))
+
     // console.log(HSVtoRGB(RGBtoHSB(img.data[1], img.data[1 + 1], img.data[1 + 2])))
+    // console.log("val:" + parseInt(values[1]) / 100)
 
     for (let i = 0; i < imgData.length; i += 4) {
-        let pix, newPix
-        if (type === "H") {
-            pix = RGBtoHSL(img.data[i], img.data[i + 1], img.data[i + 2])
-            pix[0] = parseInt(value)
-            newPix = HSLtoRGB([pix[0], pix[1], pix[2]])
-        } else if (type === "S") {
-            pix = RGBtoHSL(img.data[i], img.data[i + 1], img.data[i + 2])
-            pix[1] = parseInt(value) / 100
-            newPix = HSLtoRGB([pix[0], pix[1], pix[2]])
-        } else if (type === "B") {
-            pix = RGBtoHSV(img.data[i], img.data[i + 1], img.data[i + 2])
-            pix[2] = parseInt(value) / 100
-            newPix = HSVtoRGB([pix[0], pix[1], pix[2]])
-        }
+        let hsl, newPix
+        hsl = RGBtoHSL(imgDataOrig.data[i], imgDataOrig.data[i + 1], imgDataOrig.data[i + 2])
+        hsl[0] += parseInt(values[0])
+        hsl[1] += parseInt(values[1]) / 100
+        hsl[2] += parseInt(values[2]) / 100
+
+        newPix = HSLtoRGB([hsl[0], hsl[1], hsl[2]])
+
+        // hsl = RGBtoHSV(img.data[i], img.data[i + 1], img.data[i + 2])
+        // hsl[2] = parseInt(value) / 100
+        // newPix = HSVtoRGB([hsl[0], hsl[1], hsl[2]])
+
+        // change to new values of pixels
         imgData[i] = newPix[0]
         imgData[i + 1] = newPix[1]
         imgData[i + 2] = newPix[2]
