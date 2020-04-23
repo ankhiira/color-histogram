@@ -1,4 +1,4 @@
-import {RGBtoHSL, HSLtoRGB, RGBtoHSV, HSVtoRGB} from './colorManipulation.js';
+import {RGBtoHSL, HSLtoRGB} from './colorManipulation.js';
 
 // nacteme obrazek a vykreslime jej na canvas
 export async function loadImage() {
@@ -40,13 +40,6 @@ export function editPixels(imgDataOrig, values) {
     let img = context.getImageData(0, 0, canvas.width, canvas.height)
     let imgData = img.data
 
-    // console.log(img.data[1], img.data[1 + 1], img.data[1 + 2])
-    // var RGB = RGBtoHSL(img.data[1], img.data[1 + 1], img.data[1 + 2])
-    //
-    // console.log(RGBtoHSL(img.data[1], img.data[1 + 1], img.data[1 + 2]))
-
-    // console.log(HSVtoRGB(RGBtoHSB(img.data[1], img.data[1 + 1], img.data[1 + 2])))
-    // console.log("val:" + parseInt(values[1]) / 100)
 
     for (let i = 0; i < imgData.length; i += 4) {
         let hsl, newPix
@@ -56,10 +49,6 @@ export function editPixels(imgDataOrig, values) {
         hsl[2] += parseInt(values[2]) / 100
 
         newPix = HSLtoRGB([hsl[0], hsl[1], hsl[2]])
-
-        // hsl = RGBtoHSV(img.data[i], img.data[i + 1], img.data[i + 2])
-        // hsl[2] = parseInt(value) / 100
-        // newPix = HSVtoRGB([hsl[0], hsl[1], hsl[2]])
 
         // change to new values of pixels
         imgData[i] = newPix[0]

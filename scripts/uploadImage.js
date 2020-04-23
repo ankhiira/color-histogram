@@ -35,6 +35,13 @@ inpFile.addEventListener("change", function () {
             myChart.destroy()
 
             loadImage().then(imgData => {
+                document.hueForm.hueValId.value = 0
+                document.saturationForm.satValId.value = 0
+                document.brightForm.brightValId.value = 0
+                document.hueForm.sliderHueId.value = 0
+                document.saturationForm.sliderSatId.value = 0;
+                document.brightForm.sliderBrightId.value = 0;
+
                 myChart = createGraph(getPixelMatrix(imgData))
             })
         })

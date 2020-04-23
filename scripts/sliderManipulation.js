@@ -23,4 +23,3 @@ function updateImage() {
 
     getMyChart([hue, sat, bri])
 }
-
